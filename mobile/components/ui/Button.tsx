@@ -91,10 +91,12 @@ export const Button: React.FC<ButtonProps> = ({
     <TouchableOpacity
       style={getButtonStyle()}
       onPress={onPress}
-      disabled={disabled}
+      disabled={disabled || loading}
       activeOpacity={0.7}
     >
-      <Text style={getTextStyle()}>{title}</Text>
+      <Text style={getTextStyle()}>
+        {loading ? 'Loading...' : title}
+      </Text>
     </TouchableOpacity>
   );
 };
